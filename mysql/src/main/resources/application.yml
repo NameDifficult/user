@@ -1,5 +1,5 @@
 server:
-  port: 8088
+  port: 9088
 
 
 #服务名称
@@ -9,11 +9,12 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver            # mysql驱动包 com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/firstweek?serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/shangmifirstweek?serverTimezone=Asia/Shanghai&useSSL=false
     username: root
     password: 123456
 
 # 配置mybatis
 mybatis:
-  mapperLocations: classpath:mapper/*.xml          # mapper文件所在位置
-  type-aliases-package: org.fu.user.po    # 所有bean别名类所在包
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true  #开启驼峰命名

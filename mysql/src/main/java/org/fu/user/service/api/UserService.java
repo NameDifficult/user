@@ -1,9 +1,8 @@
-package org.fu.user.mapper;
+package org.fu.user.service.api;
 
-import org.apache.ibatis.annotations.Param;
 import org.fu.user.po.UserPO;
 
-public interface UserMapper {
+public interface UserService {
 
     /**
      *      根据用户名查询用户信息
@@ -11,8 +10,9 @@ public interface UserMapper {
      * @param userName
      * @return
      */
-    UserPO selectUserByUserName(@Param("userName") String userName);
+    UserPO selectUserByUserName(String userName);
 
 
     UserPO getOne();
+
 }
