@@ -3,7 +3,7 @@
 <mapper namespace="org.fu.user.mapper.UserMapper">
 
     <select id="selectUserByUserName" resultType="org.fu.user.po.UserPO">
-        select
+        select user_name , user_acct , create_time from user where user_name = #{userName};
     </select>
 
 </mapper>
