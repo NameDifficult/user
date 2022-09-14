@@ -1,9 +1,8 @@
 package org.fu.user;
 
 import org.fu.user.mapper.UserMapper;
-import org.fu.user.po.UserPO;
 import org.fu.user.service.api.UserService;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

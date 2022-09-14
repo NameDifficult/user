@@ -1,8 +1,7 @@
 package org.fu.user.controller;
 
 import org.fu.user.po.UserPO;
-import org.fu.user.service.api.UserService;
-import org.springframework.beans.factory.annotation.Value;
+import org.fu.user.service.ConsumerUserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,13 +10,10 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-public class UserController {
+public class ConsumerController {
 
     @Resource
-    private UserService userService;
-
-    @Value("${server.port}")
-    private String serverPort;
+    private ConsumerUserService mysqlUserService;
 
     /**
      *  根据用户名查询用户信息
@@ -27,11 +23,7 @@ public class UserController {
      */
     @RequestMapping("/getUser")
     public String getUser(@RequestParam("userName")String userName){
-        UserPO userPO = userService.selectUserByUserName(userName);
-        if (userPO==null){
-            return "未查询到您想要的数据";
-        }
-        return userPO.toString();
+        return mysqlUserService.getUser(userName);
     }
 
 
@@ -41,8 +33,9 @@ public class UserController {
      */
     @RequestMapping("/getAllUser")
     public String getAllUser(){
-        List<UserPO> allUser = userService.getAllUser();
-        return allUser.toString() +"\t" + serverPort;
+        String allUser = mysqlUserService.getAllUser();
+        System.out.println(allUser);
+        return allUser.toString();
     }
 
 
@@ -54,11 +47,7 @@ public class UserController {
      */
     @RequestMapping("/insertUser")
     public String insertUser(@RequestParam("userName")String userName,@RequestParam("userAcct")String userAcct){
-        Boolean insertResult = userService.insertUser(userName, userAcct);
-        if (insertResult == false){
-            return "保存失败";
-        }
-        return "保存成功";
+        return mysqlUserService.insertUser(userName,userAcct);
     }
 
 
@@ -70,26 +59,13 @@ public class UserController {
      */
     @RequestMapping("/updateUser")
     public String updateUser(@RequestParam("userName")String userName,@RequestParam("userAcct")String userAcct){
-        Boolean insertResult = userService.updateUser(userName, userAcct);
-        if (insertResult == false){
-            return "修改失败";
-        }
-        return "修改成功";
+        return mysqlUserService.updateUser(userName,userAcct);
     }
 
 
 
     @RequestMapping("/deleteUser")
     public String deleteUser(@RequestParam("userName")String userName){
-        Boolean deleteResult = userService.deleteUser(userName);
-        if (deleteResult == false){
-            return "删除失败";
-        }
-        return "删除成功";
+        return mysqlUserService.deleteUser(userName);
     }
-
-
-
-
-
 }

@@ -17,6 +17,11 @@ public class UserPO {
      */
     private String CreateTime;
 
+    public UserPO(String userName, String userAcct, String createTime) {
+        UserName = userName;
+        UserAcct = userAcct;
+        CreateTime = createTime;
+    }
 
     public String getUserName() {
         return UserName;
@@ -40,5 +45,15 @@ public class UserPO {
 
     public void setCreateTime(String createTime) {
         CreateTime = createTime;
+    }
+
+
+    @Override
+    public String toString() {
+        return "UserPO{" +
+                "UserName='" + UserName + '\'' +
+                ", UserAcct='" + UserAcct + '\'' +
+                ", CreateTime='" + CreateTime + '\'' +
+                '}';
     }
 }

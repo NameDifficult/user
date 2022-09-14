@@ -1,6 +1,5 @@
 package org.fu.user.service.api;
 
-import org.apache.ibatis.annotations.Param;
 import org.fu.user.po.UserPO;
 
 import java.util.List;
