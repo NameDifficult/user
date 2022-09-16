@@ -1,0 +1,36 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Simple API
+  description: A simple API to learn how to write OpenAPI Specification
+schemes:
+  - https
+
+
+host: localhost
+basePath: /swaggerTest3
+paths:
+  /persions/{username}:
+    get:
+      summary: 简单描述
+      description: /swaggerTest3/persions/{username}
+      parameters:
+        - name: username
+          type: string
+          description: 用户名
+          in: path
+          required: true
+      responses:
+          200:
+            description: 成功
+            schema:
+              required:
+                - username
+              properties:
+                firstname:
+                  type: string
+                lastname:
+                  type: string
+                username:
+                  type: string
+

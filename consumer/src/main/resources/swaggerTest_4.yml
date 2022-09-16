@@ -1,0 +1,35 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Simple API
+  description: A simple API to learn how to write OpenAPI Specification
+schemes:
+  - https
+
+
+host: localhost
+basePath: /swaggerTest4
+paths:
+  /persions:
+    post:
+      summary: 简单说明
+      description: /swaggerTest4/persions   这是一个post请求
+      parameters:
+        - name: persion
+          in: body
+          description: 参数在body中
+          schema:
+            required:
+              - username
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+              username:
+                type: string
+      responses:
+        200:
+          description: 成功
+        404:
+          description: 页面不存在

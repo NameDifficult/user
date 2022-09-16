@@ -1,13 +1,10 @@
 package org.fu.user.controller;
 
-import org.fu.user.po.UserPO;
 import org.fu.user.service.ConsumerUserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
-import java.util.List;
 
 @RestController
 public class ConsumerController {
@@ -31,11 +28,11 @@ public class ConsumerController {
      *  查询所有用户信息
      * @return
      */
-    @RequestMapping("/getAllUser")
+    @RequestMapping("/getuAllUser")
     public String getAllUser(){
         String allUser = mysqlUserService.getAllUser();
         System.out.println(allUser);
-        return allUser.toString();
+        return allUser;
     }
 
 

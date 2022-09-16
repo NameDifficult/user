@@ -1,12 +1,10 @@
 package org.fu.user.service;
 
-import org.fu.user.po.UserPO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 
 @Component
 @FeignClient(value = "cloud-mysql-service")

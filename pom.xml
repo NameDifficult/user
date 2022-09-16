@@ -10,6 +10,7 @@
         <module>consumer</module>
         <module>producer</module>
         <module>userEntity</module>
+        <module>test</module>
     </modules>
     <name>user</name>
     <description>Demo project for Spring Boot</description>

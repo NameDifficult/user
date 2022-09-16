@@ -1,0 +1,62 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Simple API
+  description: A simple API to learn how to write OpenAPI Specification
+schemes:
+  - https
+
+host: localhost
+basePath: /person
+paths:
+  /user:
+    get:
+      summary: 简单介绍
+      description: 详细介绍:多了最后一部分重复的
+      parameters:
+        - name: userId
+          in: query
+          type: integer
+          description: 用户名
+      responses:
+        200:
+          description: 成功
+          $ref: "#/definitions/definitionSchema"
+
+
+
+
+
+
+definitions:
+  definitionSchema:
+    schema:
+      type: array
+      items:
+        required:
+          - username
+        properties:
+          firstname:
+            type: string
+          lastname:
+            type: string
+          username:
+            type: string
+
+  person:
+    items:
+      required:
+        - username
+      properties:
+        firstname:
+          type: string
+        lastname:
+          type: string
+        username:
+          type: string
+
+# 可以多层嵌套
+  persons:
+    schema:
+      type: array
+      $ref: "#/definitions/person"
